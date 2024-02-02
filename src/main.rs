@@ -7,28 +7,35 @@ fn main() {
 
     println!("All employees: {:?}", my_company.list_all_employees());
 
-    my_company.add_employee_to_department(&String::from("Johan Chataigner"), &String::from("IT"));
-    my_company.add_employee_to_department(&String::from("Johan Chataigner"), &String::from("IT"));
+    let it_department = String::from("IT");
+    let hr_department = String::from("HR");
+    let legal_department = String::from("Legal");
+    let direction_department = String::from("Direction");
 
-    my_company.add_employee_to_department(&String::from("Camille Guiraud"), &String::from("HR"));
-    my_company
-        .add_employee_to_department(&String::from("Camille Guiraud"), &String::from("Direction"));
+    let johan = String::from("Johan Chataigner");
+    let camille = String::from("Camille Guiraud");
+
+    my_company.add_employee_to_department(&johan, &it_department);
+    my_company.add_employee_to_department(&johan, &it_department);
+
+    my_company.add_employee_to_department(&camille, &hr_department);
+    my_company.add_employee_to_department(&camille, &direction_department);
 
     println!(
         "IT employees: {:?}",
-        my_company.list_department_employees(&String::from("IT"))
+        my_company.list_department_employees(&it_department)
     );
     println!(
         "HR employees: {:?}",
-        my_company.list_department_employees(&String::from("HR"))
+        my_company.list_department_employees(&hr_department)
     );
     println!(
         "Legal employees: {:?}",
-        my_company.list_department_employees(&String::from("Legal"))
+        my_company.list_department_employees(&legal_department)
     );
     println!(
         "Direction employees: {:?}",
-        my_company.list_department_employees(&String::from("Direction"))
+        my_company.list_department_employees(&direction_department)
     );
     println!("All employees: {:?}", my_company.list_all_employees());
 }
