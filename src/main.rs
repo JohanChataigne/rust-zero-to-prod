@@ -1,4 +1,8 @@
-fn main() {
-    let toto = 2;
-    println!("Hello {toto}, world!");
+use std::net::TcpListener;
+use zero2prod::startup::run;
+
+#[tokio::main]
+async fn main() -> Result<(), std::io::Error> {
+    let listener = TcpListener::bind("127.0.0.1:8000")?;
+    run(listener)?.await
 }
